@@ -1,0 +1,37 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      %button.btn.btn-navbar{"data-target" => ".nav-collapse", "data-toggle" => "collapse", :type => "button"}
+        %span.icon-bar
+        %span.icon-bar
+        %span.icon-bar
+      %a.brand{:href => "#"} FireFight!
+      .nav-collapse.collapse#main-menu
+        %ul.nav#main-menu-left
+          %li.active
+            %a{:href => "#"} Home
+          %li
+            %a{:href => "#about"} About
+          %li
+            %a{:href => "#contact"} Contact
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Dropdown
+              %b.caret
+            %ul.dropdown-menu
+              %li
+                %a{:href => "#"} Action
+              %li
+                %a{:href => "#"} Another action
+              %li
+                %a{:href => "#"} Something else here
+              %li.divider
+              %li.nav-header Nav header
+              %li
+                %a{:href => "#"} Separated link
+              %li
+                %a{:href => "#"} One more separated link
+        %ul.nav.pull-right#main-menu-right
+          %li
+            = link_to "Facebook Group", "https://www.facebook.com/groups/firefight13/", :rel => "tooltip", :target => "_blank"
+          

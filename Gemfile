@@ -8,6 +8,8 @@ gem 'mysql', '2.8.1'
 # Templates
 gem 'haml', '3.1.7'
 
+gem 'devise', '2.2.4'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
