@@ -5,33 +5,37 @@
         %span.icon-bar
         %span.icon-bar
         %span.icon-bar
-      %a.brand{:href => "#"} FireFight!
+      %a.brand{:href => "#", style: "padding: 10px 15px;"}
+        = image_tag "clan_logo_nav.png"
+      %a.brand{:href => "#"}
+        = Rails.application.config.site_name
       .nav-collapse.collapse#main-menu
         %ul.nav#main-menu-left
           %li.active
             %a{:href => "#"} Home
           %li
             %a{:href => "#about"} About
-          %li
-            %a{:href => "#contact"} Contact
           %li.dropdown
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-              Dropdown
+              Members
               %b.caret
             %ul.dropdown-menu
-              %li
-                %a{:href => "#"} Action
-              %li
-                %a{:href => "#"} Another action
-              %li
-                %a{:href => "#"} Something else here
+              %li= link_to "Member List", members_path
+              %li= link_to "New Member", new_member_path
+          %li.dropdown
+            %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+              Stats
+              %b.caret
+            %ul.dropdown-menu
+              %li= link_to "Stats List", stat_groups_path
+              %li= link_to "New Entry", new_stat_group_path
               %li.divider
-              %li.nav-header Nav header
+              %li.nav-header Tools
               %li
-                %a{:href => "#"} Separated link
+                %a{:href => "#"} Update Specific Stat
               %li
-                %a{:href => "#"} One more separated link
+                %a{:href => "#"} Graphs
         %ul.nav.pull-right#main-menu-right
           %li
-            = link_to "Facebook Group", "https://www.facebook.com/groups/firefight13/", :rel => "tooltip", :target => "_blank"
+            = link_to "Join the Facebook Group!", "https://www.facebook.com/groups/firefight13/", :rel => "tooltip", :target => "_blank"
           

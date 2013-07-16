@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  level: 1
+  donated: 1
+  received: 1
+  trophies: 1
+  member_id: 1
+  record_date: 2013-07-16 23:20:33
+
+two:
+  level: 1
+  donated: 1
+  received: 1
+  trophies: 1
+  member_id: 1
+  record_date: 2013-07-16 23:20:33

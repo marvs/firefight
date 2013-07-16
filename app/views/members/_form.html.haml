@@ -1,0 +1,31 @@
+= form_for @member, :html => { class: 'form-horizontal well' } do |f|
+  %fieldset
+    %legend Add New Member
+    .control-group
+      %label.control-label{:for => "input01"} Text input
+      .controls
+        = f.text_field :name
+        %p.help-block Please note that names are case-sensitive!
+    .control-group
+      %label.control-label{:for => "optionsCheckbox"} Elder?
+      .controls
+        %label.checkbox
+          = f.check_box :elder
+          Check if this member is an elder
+    .control-group
+      %label.control-label{:for => "optionsCheckbox"} Member?
+      .controls
+        %label.checkbox
+          = f.check_box :active
+          Check if this member is a member of the clan
+    .form-actions
+      = f.submit "Add Member", class: 'btn btn-primary'
+      = link_to "Cancel", members_path, class: 'btn'
+      
+:javascript
+  // This will make the control-group to have the error class if the field has an error
+  $('input').each(function() {
+    if ($(this).parent().hasClass('error')) {
+      $(this).closest('.control-group').addClass('error');
+    } 
+  });

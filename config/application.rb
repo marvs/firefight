@@ -75,5 +75,7 @@ module Firefight
       :enable_starttls_auto => true  }
     config.notification_email = "\"Mambin Notifications\" <notifications@mambin.com>"
     
+    config.site_name = "Fire Fight!"
+    
   end
 end

@@ -9,6 +9,7 @@ gem 'mysql', '2.8.1'
 gem 'haml', '3.1.7'
 
 gem 'devise', '2.2.4'
+gem 'nokogiri', '1.6.0'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -38,4 +39,5 @@ gem 'debugger'
 
 group :development do
   gem 'webrick', '1.3.1'
+  gem 'seed_dump'
 end

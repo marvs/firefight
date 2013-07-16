@@ -1,0 +1,19 @@
+= form_for @stat_group do |f|
+  %table.table.table-hover
+    %thead
+      %tr
+        %th Level
+        %th Member
+        %th Troops Donated
+        %th Troops Received
+        %th Trophies
+    %tbody
+      - @stats.each do |stat|
+        %tr
+          %td= text_field_tag "level[]"
+          %td= stat.member_id
+          %td= text_field_tag "donated[]"
+          %td= text_field_tag "received[]"
+          %td= text_field_tag "trophies[]"
+  
+  = submit_tag "Save Stats"
