@@ -10,3 +10,11 @@ body {
 form .clearfix:before, form .clearfix:after {
   display: inline;
 }
+
+table.stat_group {
+  tbody {
+    input {
+      width: 100px;
+    }
+  }
+}

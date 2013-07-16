@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(:version => 20130716160620) do
     t.integer  "received"
     t.integer  "trophies"
     t.integer  "member_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "stat_group_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|

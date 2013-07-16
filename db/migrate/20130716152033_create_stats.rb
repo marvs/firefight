@@ -6,6 +6,7 @@ class CreateStats < ActiveRecord::Migration
       t.integer :received
       t.integer :trophies
       t.integer :member_id
+      t.integer :stat_group_id
 
       t.timestamps
     end
