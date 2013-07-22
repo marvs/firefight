@@ -1,28 +1,39 @@
-.hero-unit
+.hero-unit{ style: "height: 150px; padding-top: 20px;" }
   %h1 Welcome to the Clan!
   %p We are dedicated to keepin' it fresh. Clash on!
-  %p
-    %a.btn.btn-primary.btn-large{:href => "#"} Learn more »
+  %p{ style: "margin-bottom: 0px;" }  
+    <strong>Clan Leader:</strong> bjt_16
+  %p{ style: "margin-bottom: 0px;" }
+    <strong>Leader Emeritus:</strong> Tank, Vonhausen
 .row
   .span4
     %h2 
       = image_tag "clan_logo_trans.png"
       Most Trophies
     %p Top five clan mates with the most number of trophies!
+    %ul
+      - max_trophies.each do |stat|
+        %li= "#{stat.trophies} - #{stat.member.name} (#{stat.updated_at.to_date.to_s})"
     %p
-      %a.btn{:href => "#"} View details »
+      %a.btn.btn-primary{:href => "#"} Full List »
   .span4
     %h2
       = image_tag "clan_logo_trans.png"
       Highest Levels
     %p Top five clan mates with the highest levels!
+    %ul
+      - max_levels.each do |stat|
+        %li= "#{stat.member.name} (#{stat.level})"
     %p
-      %a.btn{:href => "#"} View details »
+      %a.btn.btn-primary{:href => "#"} Full List »
   .span4
     %h2
       = image_tag "clan_logo_trans.png"
       Top Donations
     %p Top five clan mates with the most number of donations given!
+    %ul
+      - max_donations.each do |stat|
+        %li= "#{stat.member.name} (#{stat.donated})"
     %p
-      %a.btn{:href => "#"} View details »
+      %a.btn.btn-primary{:href => "#"} Full List »
 

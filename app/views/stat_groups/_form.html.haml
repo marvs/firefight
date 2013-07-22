@@ -10,7 +10,7 @@
         %th Trophies
     %tbody
       - @stats.each_with_index do |stat, index|
-        - selmem = (index+1 > @members.size) ? nil : Member.find(@members[index][1])
+        - selmem = stat.member
         %tr
           %td= index + 1
           %td= text_field_tag "level[]", stat.level
@@ -21,4 +21,4 @@
           %td= text_field_tag "received[]", stat.received
           %td= text_field_tag "trophies[]", stat.trophies
   
-  = submit_tag "Save Stats"
+  = submit_tag "Save Stats", class: 'btn btn-primary'

@@ -6,6 +6,7 @@ Firefight::Application.routes.draw do
   resources :stat_groups
 
   get "home/index"
+  get "home/about", as: "about"
 
   root :to => 'home#index'
 

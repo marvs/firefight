@@ -11,6 +11,9 @@
 
 # encoding: utf-8
 
+User.create(email: 'test@mambin.com', password: 'changeme', password_confirmation: 'changeme')
+User.first.update_attribute(:admin, true)
+
 Member.create([
   { :name => "AB", :active => true, :elder => true },
   { :name => "cambridgesoljas", :active => true, :elder => true },

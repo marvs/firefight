@@ -1,4 +1,5 @@
 class MembersController < ApplicationController
+  before_filter :require_admin, :except => [:index]
 
   def index
     @members = Member.order(:name)

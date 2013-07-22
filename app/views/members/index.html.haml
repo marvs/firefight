@@ -8,11 +8,13 @@
       %th Name
       %th Elder?
       %th Member?
-      %th Actions
+      - if admin_user?
+        %th Actions
   %tbody
     - @members.each do |member|
       %tr
         %td= member.name
         %td= member.elder ? "<i class='icon-ok'></i>".html_safe : ''
         %td= member.active ? "<i class='icon-ok'></i>".html_safe : ''
-        %td= link_to "Edit", edit_member_path(member)
+        - if admin_user?
+          %td= link_to "Edit", edit_member_path(member)

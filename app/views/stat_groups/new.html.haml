@@ -1,24 +1,3 @@
-= form_for @stat_group do |f|
-  %table.table.table-hover.stat_group
-    %thead
-      %tr
-        %th No.
-        %th Level
-        %th Member
-        %th Troops Donated
-        %th Troops Received
-        %th Trophies
-    %tbody
-      - @stats.each_with_index do |stat, index|
-        - selmem = (index+1 > @members.size) ? nil : Member.find(@members[index][1])
-        %tr
-          %td= index + 1
-          %td= text_field_tag "level[]", stat.level
-          %td
-            = hidden_field_tag "member_id[]", (selmem ? selmem.id : '')
-            = selmem.name if selmem
-          %td= text_field_tag "donated[]", stat.donated
-          %td= text_field_tag "received[]", stat.received
-          %td= text_field_tag "trophies[]", stat.trophies
-  
-  = submit_tag "Save Stats"
+%h1 Create New Stat Group
+
+= render 'form'
