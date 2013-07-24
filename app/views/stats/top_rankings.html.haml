@@ -1,0 +1,32 @@
+.row
+  .span4
+    %h2 
+      = image_tag "clan_logo_trans.png"
+      Most Trophies
+    %ul.no_bullets.rankings
+      - max_trophies(50).each do |stat|
+        %li
+          %span{ style: 'font-size: 25px;' } #{stat.trophies}
+          = "- <strong>#{stat.member.name}</strong> on #{stat.updated_at.to_s(:normal_date)}".html_safe
+        
+  .span4
+    %h2
+      = image_tag "clan_logo_trans.png"
+      Highest Levels
+    %ul.no_bullets.rankings
+      - max_levels(50).each do |stat|
+        %li
+          %span{ style: 'font-size: 25px;' } #{stat.level}
+          = "- <strong>#{stat.member.name}</strong> on #{stat.updated_at.to_s(:normal_date)}".html_safe
+        
+  .span4
+    %h2
+      = image_tag "clan_logo_trans.png"
+      Top Donations
+    %ul.no_bullets.rankings
+      - max_donations(50).each do |stat|
+        %li
+          %span{ style: 'font-size: 25px;' } #{stat.donated}
+          = "- <strong>#{stat.member.name}</strong> on #{stat.updated_at.to_s(:normal_date)}".html_safe
+        
+

@@ -18,30 +18,36 @@
     %h2 
       = image_tag "clan_logo_trans.png"
       Most Trophies
-    %p Top five clan mates with the most number of trophies!
-    %ul
+    %p Clan mates with the most number of trophies!
+    %ul.no_bullets.rankings
       - max_trophies.each do |stat|
-        %li= "#{stat.trophies} - #{stat.member.name} (#{stat.updated_at.to_date.to_s})"
+        %li
+          %span{ style: 'font-size: 25px;' } #{stat.trophies}
+          = "- <strong>#{stat.member.name}</strong> on #{stat.updated_at.to_s(:normal_date)}".html_safe
     %p
-      %a.btn.btn-primary{:href => "#"} Full List »
+      %a.btn.btn-primary{:href => top_rankings_stats_path} Full List »
   .span4
     %h2
       = image_tag "clan_logo_trans.png"
       Highest Levels
-    %p Top five clan mates with the highest levels!
-    %ul
+    %p Clan mates with the highest levels!
+    %ul.no_bullets.rankings
       - max_levels.each do |stat|
-        %li= "#{stat.member.name} (#{stat.level})"
+        %li
+          %span{ style: 'font-size: 25px;' } #{stat.level}
+          = "- <strong>#{stat.member.name}</strong> on #{stat.updated_at.to_s(:normal_date)}".html_safe
     %p
-      %a.btn.btn-primary{:href => "#"} Full List »
+      %a.btn.btn-primary{:href => top_rankings_stats_path} Full List »
   .span4
     %h2
       = image_tag "clan_logo_trans.png"
       Top Donations
-    %p Top five clan mates with the most number of donations given!
-    %ul
+    %p Clan mates with the most number of donations given!
+    %ul.no_bullets.rankings
       - max_donations.each do |stat|
-        %li= "#{stat.member.name} (#{stat.donated})"
+        %li
+          %span{ style: 'font-size: 25px;' } #{stat.donated}
+          = "- <strong>#{stat.member.name}</strong> on #{stat.updated_at.to_s(:normal_date)}".html_safe
     %p
-      %a.btn.btn-primary{:href => "#"} Full List »
+      %a.btn.btn-primary{:href => top_rankings_stats_path} Full List »
 

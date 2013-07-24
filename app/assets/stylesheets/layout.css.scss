@@ -18,3 +18,12 @@ table.stat_group {
     }
   }
 }
+
+ul.no_bullets {
+  list-style-type: none;
+  margin-left: 0px;
+}
+
+ul.rankings {
+  li { margin-top: 15px; }
+}

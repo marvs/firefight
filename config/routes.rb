@@ -4,6 +4,11 @@ Firefight::Application.routes.draw do
 
   resources :members
   resources :stat_groups
+  resources :stats do
+    collection do
+      get :top_rankings
+    end
+  end
 
   get "home/index"
   get "home/about", as: "about"

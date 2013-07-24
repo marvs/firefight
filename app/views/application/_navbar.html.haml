@@ -32,9 +32,9 @@
               - if admin_user?
                 %li= link_to "New Entry", new_stat_group_path
               %li.divider
-              %li.nav-header Tools
+              %li.nav-header Records
               %li
-                %a{:href => "#"} Update Specific Stat
+                = link_to "Top Rankings", top_rankings_stats_path
               %li
                 %a{:href => "#"} Graphs
         %ul.nav.pull-right#main-menu-right
