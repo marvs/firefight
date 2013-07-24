@@ -8,7 +8,7 @@
   %tbody
     - @stat_groups.each do |sg|
       %tr
-        %td= sg.created_at.to_s
+        %td= link_to sg.created_at.to_s(:normal_datetime), sg
         %td= sg.stats.count
         - if admin_user?
           %td

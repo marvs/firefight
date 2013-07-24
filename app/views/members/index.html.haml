@@ -1,20 +1,26 @@
-%p= "Total: #{@members.count}"
-%p= "Total Elders: #{@members.elders.count}"
-%p= "Total Members: #{@members.clan_members.count}"
+.row
+  .span4
+    &nbsp;
+  .span4
+    %h3= "Current Members: #{@members.clan_members.count}"
+  .span4
+    %h3= "Current Elders: #{@members.elders.count}"
 
 %table.table.table-striped.table-hover
-  %thead
-    %tr
-      %th Name
-      %th Elder?
-      %th Member?
-      - if admin_user?
-        %th Actions
   %tbody
     - @members.each do |member|
       %tr
-        %td= member.name
-        %td= member.elder ? "<i class='icon-ok'></i>".html_safe : ''
-        %td= member.active ? "<i class='icon-ok'></i>".html_safe : ''
+        %td{ style: 'font-size: 18px;' }
+          %strong= member.name
+        %td
+          - if member.active
+            %span.label.label-info Clan Member
+          - else
+            &nbsp;
+        %td
+          - if member.elder
+            %span.label.label-important Elder
+          - else
+            &nbsp;
         - if admin_user?
           %td= link_to "Edit", edit_member_path(member)

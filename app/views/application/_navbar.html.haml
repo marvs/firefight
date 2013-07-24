@@ -11,11 +11,11 @@
         = Rails.application.config.site_name
       .nav-collapse.collapse#main-menu
         %ul.nav#main-menu-left
-          %li.active
+          %li{ class: (@navbar_active == "home") ? 'active' : nil }
             %a{:href => root_path} Home
-          %li
+          %li{ class: (@navbar_active == "about") ? 'active' : nil }
             %a{:href => about_path} About
-          %li.dropdown
+          %li.dropdown{ class: (@navbar_active == "members") ? 'active' : nil }
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               Members
               %b.caret
@@ -23,7 +23,7 @@
               %li= link_to "Member List", members_path
               - if admin_user?
                 %li= link_to "New Member", new_member_path
-          %li.dropdown
+          %li.dropdown{ class: (@navbar_active == "stats") ? 'active' : nil }
             %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
               Stats
               %b.caret

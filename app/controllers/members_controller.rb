@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
   before_filter :require_admin, :except => [:index]
+  before_filter :set_navbar_active
 
   def index
     @members = Member.order(:name)
@@ -30,5 +31,10 @@ class MembersController < ApplicationController
       render :edit
     end
   end
+  
+private
+  def set_navbar_active
+    @navbar_active = "members"
+  end  
   
 end

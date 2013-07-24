@@ -1,0 +1,22 @@
+%h3 Stats from #{@stat_group.created_at.to_s(:normal_datetime)}
+
+%table.table.table-hover.stat_group
+  %thead
+    %tr
+      %th No.
+      %th Level
+      %th Member
+      %th Troops Donated
+      %th Troops Received
+      %th Trophies
+  %tbody
+    - @stat_group.stats.trophies_desc.each_with_index do |stat, index|
+      %tr
+        %td= index + 1
+        %td= stat.level
+        %td
+          %strong= stat.member.name rescue '(missing record)'
+        %td= stat.donated
+        %td= stat.received
+        %td= stat.trophies
+

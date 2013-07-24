@@ -15,8 +15,11 @@
           %td= index + 1
           %td= text_field_tag "level[]", stat.level
           %td
-            = hidden_field_tag "member_id[]", (selmem ? selmem.id : '')
-            = selmem.name if selmem
+            - if selmem
+              = hidden_field_tag "member_id[]", selmem.id
+              = selmem.name
+            - else
+              = select_tag "member_id[]", options_from_collection_for_select(@new_members, 'id', 'name'), :include_blank => true
           %td= text_field_tag "donated[]", stat.donated
           %td= text_field_tag "received[]", stat.received
           %td= text_field_tag "trophies[]", stat.trophies

@@ -1,10 +1,18 @@
 .hero-unit{ style: "height: 150px; padding-top: 20px;" }
-  %h1 Welcome to the Clan!
-  %p We are dedicated to keepin' it fresh. Clash on!
-  %p{ style: "margin-bottom: 0px;" }  
-    <strong>Clan Leader:</strong> bjt_16
-  %p{ style: "margin-bottom: 0px;" }
-    <strong>Leader Emeritus:</strong> Tank, Vonhausen
+  .row
+    .span7
+      %h1 Welcome to the Clan!
+      %p We are dedicated to keepin' it fresh. Clash on!
+      %p{ style: "margin-bottom: 0px;" }  
+        <strong>Clan Leader:</strong> bjt_16
+      %p{ style: "margin-bottom: 0px;" }
+        <strong>Leader Emeritus:</strong> Tank, Vonhausen
+    .span3
+      - if StatGroup.last
+        %div{ style: 'margin-top: 20px;' }
+          = link_to "Get Latest Stats!", StatGroup.last, class: 'btn btn-large btn-success'
+          %p.text-info
+            Last updated: #{StatGroup.last.updated_at.to_s}
 .row
   .span4
     %h2 

@@ -1,8 +1,13 @@
 class StatGroupsController < ApplicationController
-  before_filter :require_admin, :except => [:index]
+  before_filter :require_admin, :except => [:index, :show]
+  before_filter :set_navbar_active
 
   def index
     @stat_groups = StatGroup.all
+  end
+  
+  def show
+    @stat_group = StatGroup.find(params[:id])
   end
   
   def new
@@ -28,6 +33,7 @@ class StatGroupsController < ApplicationController
       end
     end
     if @stats.size < 50
+      @new_members = Member.clan_members.all - @stat_group.stats.map(&:member) rescue []
       (50 - @stats.size).times do
         @stats << Stat.new
       end
@@ -64,6 +70,7 @@ class StatGroupsController < ApplicationController
         @members << [stat.member.name, stat.member.id] if stat.member
       end
       if @stats.size < 50
+        @new_members = Member.clan_members.all - @stat_group.stats.map(&:member) rescue []
         (50 - @stats.size).times do
           @stats << Stat.new(stat_group_id: @stat_group.id)
         end
@@ -102,5 +109,11 @@ class StatGroupsController < ApplicationController
     @stat_group.destroy
     redirect_to stat_groups_path, :notice => "Deleted StatGroup created on #{created_on.to_s}!"
   end
+  
+  
+private
+  def set_navbar_active
+    @navbar_active = "stats"
+  end  
   
 end

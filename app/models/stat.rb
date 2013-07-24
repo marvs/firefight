@@ -9,5 +9,6 @@ class Stat < ActiveRecord::Base
   scope :with_trophies, where("trophies IS NOT NULL")
   scope :with_levels, where("level IS NOT NULL")
   scope :with_donations, where("donated IS NOT NULL")
+  scope :trophies_desc, order("trophies DESC")
   
 end
