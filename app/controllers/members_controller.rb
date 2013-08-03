@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_filter :require_admin, :except => [:index]
+  before_filter :require_admin, :except => [:index, :show]
   before_filter :set_navbar_active
 
   def index
@@ -8,6 +8,10 @@ class MembersController < ApplicationController
   
   def new
     @member = Member.new
+  end
+  
+  def show
+    @member = Member.find(params[:id])
   end
   
   def create

@@ -12,4 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap/bootstrap
+//= require d3/d3.v3
+//= require d3/nv.d3
