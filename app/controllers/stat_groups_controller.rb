@@ -3,7 +3,7 @@ class StatGroupsController < ApplicationController
   before_filter :set_navbar_active
 
   def index
-    @stat_groups = StatGroup.all
+    @stat_groups = StatGroup.order('created_at DESC').all
   end
   
   def show

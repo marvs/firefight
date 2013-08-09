@@ -2,7 +2,10 @@
   %thead
     %tr
       %th Date
-      %th Entries
+      %th Members
+      %th Trophies  
+      %th Troops Donated
+      %th Troops Received
       - if admin_user?
         %th Actions
   %tbody
@@ -10,6 +13,9 @@
       %tr
         %td= link_to sg.created_at.to_s(:normal_datetime), sg
         %td= sg.stats.count
+        %td= sg.stats.sum(:trophies)
+        %td= sg.stats.sum(:donated)
+        %td= sg.stats.sum(:received)
         - if admin_user?
           %td
             = link_to "Edit", edit_stat_group_path(sg)

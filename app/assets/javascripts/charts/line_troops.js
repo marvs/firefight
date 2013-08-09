@@ -21,41 +21,15 @@ d3.json("/members/get_troops_stats?id="+member, function(error, data) {
        .axisLabel('Number of Troops')
        .tickFormat(d3.format('d'));
     
-    d3.select('#chart svg')
+    d3.select('#line_troops svg')
       .datum(chart_data)
       .transition().duration(500)
       .call(chart);
 
-    nv.utils.windowResize(function() { d3.select('#chart svg').call(chart) });
+    nv.utils.windowResize(function() { d3.select('#line_troops svg').call(chart) });
 
     return chart;
   });
 
 });
-
-
-/* Generate Data */
-
-function sinAndCos() {
-  var sin = [],
-     cos = [];
-
-  for (var i = 0; i < 100; i++) {
-   sin.push({x: i, y: Math.sin(i/10)});
-   cos.push({x: i, y: .5 * Math.cos(i/10)});
-  }
-
-  return [
-   {
-     values: sin,
-     key: 'Troops Donated',
-     color: '#00FF00'
-   },
-   {
-     values: cos,
-     key: 'Troops Received',
-     color: '#FF0000'
-   }
-  ];
-}
 

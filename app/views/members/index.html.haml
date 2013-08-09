@@ -1,9 +1,9 @@
 .row
-  .span4
+  .span6
     &nbsp;
-  .span4
+  .span3
     %h3= "Current Members: #{@members.clan_members.count}"
-  .span4
+  .span3
     %h3= "Current Elders: #{@members.elders.count}"
 
 %table.table.table-striped.table-hover
@@ -11,7 +11,9 @@
     - @members.each do |member|
       %tr
         %td{ style: 'font-size: 18px;' }
-          %strong= member.name
+          %strong= link_to member.name, member
+        %td
+          = "(#{member.slug})"
         %td
           - if member.active
             %span.label.label-info Clan Member
