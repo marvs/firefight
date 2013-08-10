@@ -15,7 +15,7 @@
         %td= index + 1
         %td= stat.level
         %td
-          %strong= stat.member.name rescue '(missing record)'
+          %strong= link_to stat.member.name, stat.member rescue '(missing record)'
         %td= stat.donated
         %td= stat.received
         %td= stat.trophies

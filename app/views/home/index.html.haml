@@ -14,7 +14,7 @@
         %div{ style: 'margin-top: 20px;' }
           = link_to "Get Latest Stats!", StatGroup.last, class: 'btn btn-large btn-success'
           %p.text-info
-            Last updated: #{StatGroup.last.updated_at.to_s}
+            Last updated: #{StatGroup.last.updated_at.to_s(:normal_date)}
 .row
   .span4
     %h2 
@@ -25,7 +25,7 @@
       - max_trophies.each do |stat|
         %li
           %span{ style: 'font-size: 25px;' } #{stat.trophies}
-          = "- <strong>#{stat.member.name}</strong> on #{stat.updated_at.to_s(:normal_date)}".html_safe
+          = "- <strong>#{link_to(stat.member.name, stat.member)}</strong> on #{stat.updated_at.to_s(:normal_date)}".html_safe
     %p
       %a.btn.btn-primary{:href => top_rankings_stats_path} Full List »
   .span4
@@ -37,7 +37,7 @@
       - max_levels.each do |stat|
         %li
           %span{ style: 'font-size: 25px;' } #{stat.level}
-          = "- <strong>#{stat.member.name}</strong> on #{stat.updated_at.to_s(:normal_date)}".html_safe
+          = "- <strong>#{link_to(stat.member.name, stat.member)}</strong> on #{stat.updated_at.to_s(:normal_date)}".html_safe
     %p
       %a.btn.btn-primary{:href => top_rankings_stats_path} Full List »
   .span4
@@ -49,7 +49,7 @@
       - max_donations.each do |stat|
         %li
           %span{ style: 'font-size: 25px;' } #{stat.donated}
-          = "- <strong>#{stat.member.name}</strong> on #{stat.updated_at.to_s(:normal_date)}".html_safe
+          = "- <strong>#{link_to(stat.member.name, stat.member)}</strong> on #{stat.updated_at.to_s(:normal_date)}".html_safe
     %p
       %a.btn.btn-primary{:href => top_rankings_stats_path} Full List »
 
