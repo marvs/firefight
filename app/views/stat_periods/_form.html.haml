@@ -1,0 +1,26 @@
+= form_for @stat_period, :html => { class: 'form-horizontal well' } do |f|
+  %fieldset
+    %legend Add/Update New Member
+    .control-group
+      %label.control-label Name
+      .controls
+        = f.text_field :name
+    .control-group
+      %label.control-label Start Date
+      .controls
+        = f.date_select :start_date
+    .control-group
+      %label.control-label End Date
+      .controls
+        = f.date_select :end_date
+    .form-actions
+      = f.submit "Save", class: 'btn btn-primary'
+      = link_to "Cancel", stat_periods_path, class: 'btn'
+      
+:javascript
+  // This will make the control-group to have the error class if the field has an error
+  $('input').each(function() {
+    if ($(this).parent().hasClass('error')) {
+      $(this).closest('.control-group').addClass('error');
+    } 
+  });

@@ -46,7 +46,8 @@ class StatGroupsController < ApplicationController
     donated = params[:donated]
     received = params[:received]
     trophies = params[:trophies]
-    @stat_group = StatGroup.create!(:creator_id => 1)
+    @stat_group = StatGroup.create!(:creator_id => 1, :stat_period_id => params[:stat_group][:stat_period_id])
+    
     members.each_with_index do |mid, index|
       mem = Member.clan_members.where(id: mid).first
       if mem && mem.active
@@ -83,6 +84,7 @@ class StatGroupsController < ApplicationController
   def update
     @stat_group = StatGroup.find(params[:id])
     if @stat_group
+      @stat_group.update_attribute(:stat_period_id, params[:stat_group][:stat_period_id])
       members = params[:member_id]
       levels = params[:level]
       donated = params[:donated]

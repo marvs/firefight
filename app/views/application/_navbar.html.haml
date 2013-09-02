@@ -31,6 +31,7 @@
               %li= link_to "Stats List", stat_groups_path
               - if admin_user?
                 %li= link_to "New Entry", new_stat_group_path
+                %li= link_to "Stat Periods", stat_periods_path
               %li.divider
               %li.nav-header Records
               %li

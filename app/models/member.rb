@@ -22,4 +22,8 @@ class Member < ActiveRecord::Base
     self.stats.recent_first
   end
   
+  def get_stats_per_period(sp)
+    self.stats.recent_first.where(:stat_group_id => sp.stat_groups.map(&:id))
+  end
+  
 end

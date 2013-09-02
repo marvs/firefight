@@ -10,6 +10,7 @@ Firefight::Application.routes.draw do
   end
   
   resources :stat_groups
+  resources :stat_periods
   
   resources :stats do
     collection do

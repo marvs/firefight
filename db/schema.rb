@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130808145304) do
+ActiveRecord::Schema.define(:version => 20130902161807) do
 
   create_table "members", :force => true do |t|
     t.string   "name"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(:version => 20130808145304) do
 
   create_table "stat_groups", :force => true do |t|
     t.integer  "creator_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.integer  "stat_period_id"
+  end
+
+  create_table "stat_periods", :force => true do |t|
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

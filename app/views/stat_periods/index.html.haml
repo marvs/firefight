@@ -1,0 +1,26 @@
+.row
+  .span-12
+    %h3 Stat Periods
+    %p= link_to "New Period", new_stat_period_path
+
+%table.table.table-striped.table-hover
+  %thead
+    %tr
+      %th Name
+      %th Start Date
+      %th End Date
+      %th Actions
+  %tbody
+    - @stat_periods.each do |stat_period|
+      %tr
+        %td
+          = stat_period.name
+        %td
+          = stat_period.start_date
+        %td
+          = stat_period.end_date  
+        %td
+          - if admin_user?
+            %td= link_to "Edit", edit_stat_period_path(stat_period)
+            
+
