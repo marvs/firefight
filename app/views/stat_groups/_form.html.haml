@@ -1,6 +1,6 @@
 = form_for @stat_group do |f|
   .control-group
-    = f.collection_select :stat_period_id, StatPeriod.all, :id, :name, :prompt => true
+    = f.collection_select :stat_period_id, StatPeriod.recent_first.all, :id, :name, {}, :class => "span3"
   %table.table.table-hover.stat_group
     %thead
       %tr

@@ -20,9 +20,9 @@
           %h3 Trophies
 
 - StatPeriod.recent_first.each do |sp|
-  %div{ :style => "text-align: center;" }
-    %h3= sp.name
   - if @member.get_stats_per_period(sp).any?
+    %div{ :style => "text-align: center;" }
+      %h3= sp.name
     %table.table.table-striped.table-hover.table-bordered
       %thead
         %tr

@@ -6,6 +6,7 @@ class Member < ActiveRecord::Base
   
   scope :elders, where(elder: true)
   scope :clan_members, where(active: true)
+  scope :former, where(active: false)
   
   # Relations
   has_many :stats

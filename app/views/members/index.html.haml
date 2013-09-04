@@ -1,10 +1,27 @@
-.row
-  .span-12
-    %h3= "Current Members: #{@members.clan_members.count}"
+%h3= "Current Members: #{@members.clan_members.count}"
 
 %table.table.table-striped.table-hover
   %tbody
-    - @members.each do |member|
+    - @members.clan_members.each do |member|
+      %tr
+        %td{ style: 'font-size: 18px;' }
+          %strong= link_to member.name, member
+        %td
+          = "(#{member.slug})"
+        %td
+          - if member.active
+            %span.label.label-info Clan Member
+          - else
+            &nbsp;
+        - if admin_user?
+          %td= link_to "Edit", edit_member_path(member)
+          
+          
+%h3= "Former Members: #{@members.former.count}"    
+
+%table.table.table-striped.table-hover
+  %tbody
+    - @members.former.each do |member|
       %tr
         %td{ style: 'font-size: 18px;' }
           %strong= link_to member.name, member
