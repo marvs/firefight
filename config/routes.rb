@@ -20,6 +20,8 @@ Firefight::Application.routes.draw do
 
   get "home/index"
   get "home/about", as: "about"
+  
+  match "sleep" => "home#sleep"
 
   root :to => 'home#index'
 
