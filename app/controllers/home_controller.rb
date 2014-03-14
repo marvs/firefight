@@ -9,7 +9,7 @@ class HomeController < ApplicationController
   end
   
   def sleep
-    if [16,17,18,19,20,21,22,23,0].include?(Time.now.utc.hour)
+    if [18,19,20,21,22,23,0].include?(Time.now.utc.hour)
       @sleep = true
     else
       @sleep = false

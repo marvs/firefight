@@ -23,6 +23,7 @@ Firefight::Application.routes.draw do
   
   match "sleep" => "home#sleep"
 
+  root :to => "home#sleep", :constraints => { :subdomain => "hasmarvsgonetobedyet" }
   root :to => 'home#index'
 
 end
