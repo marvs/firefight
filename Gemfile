@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '3.2.22'
 
 # Database
-gem 'mysql', '2.8.1'
+gem 'mysql', '2.9.1'
 
 # Templates
 gem 'haml', '3.1.7'
@@ -34,9 +34,6 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Deploy with Capistrano
 # gem 'capistrano'
-
-# To use debugger
-gem 'debugger'
 
 group :development do
   gem 'webrick', '1.3.1'
